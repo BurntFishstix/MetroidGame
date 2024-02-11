@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Shooting();
-            animate.SetBool("Shooting", true);
+            animate.SetTrigger("Shooting");
         }
 
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -59,21 +59,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
-            animate.SetBool("jumping", true);
+            animate.SetTrigger("Jumping");
         }
 
-        if(isGrounded == true)
-        {
-            animate.SetBool("jumping", false);
-        }
 
     }
 
 
-    public void endShooting()
-    {
-        animate.SetBool("Shooting", false);
-    }
     void Shooting()
     {
         if (betterWeapon == false)
