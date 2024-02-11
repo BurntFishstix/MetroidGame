@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     bool facingRight = true;
 
     public ParticleSystem GunShooting;
+    public Transform spawnPosition;
     public Animator animate;
     AudioManager audioManager;
     private void Awake()
@@ -45,15 +46,16 @@ public class PlayerController : MonoBehaviour
             animate.SetTrigger("Shooting");
         }
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        Vector3 movement = new Vector3(horizontalInput, 0f, 0f);
+        var horizontalInput = Input.GetAxis("Horizontal");
+        Vector3 movement = new Vector3(horizontalInput, 0, 0);
         transform.position += movement * moveSpeed * Time.deltaTime;
         animate.SetFloat("speed", Mathf.Abs(horizontalInput));
-        spriteRenderer.flipX = movement.x < 0f;
+        
 
-        if(horizontalInput > 0 && !facingRight)
+        if(horizontalInput > 0 && !facingRight || !Mathf.Approximately(0, horizontalInput))
         {
             Flip();
+            transform.rotation = horizontalInput > 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
         }
         else if(horizontalInput < 0 && facingRight)
         {

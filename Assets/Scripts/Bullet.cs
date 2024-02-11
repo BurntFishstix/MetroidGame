@@ -15,11 +15,11 @@ public class Bullet : MonoBehaviour
     {
         if (MoveRight)
         {
-            transform.Translate(1 * Time.deltaTime * speed, 0, 0);
+            transform.position += transform.right * Time.deltaTime * speed;
         }
         else
         {
-            transform.Translate(-1 * Time.deltaTime * speed, 0, 0);
+            transform.position += -transform.right * Time.deltaTime * speed;
         }
     }
 }
