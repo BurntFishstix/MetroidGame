@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private bool betterWeapon;
     public float bulletSpeed = 10;
     private bool isGrounded;
+    private SpriteRenderer spriteRenderer;
     bool facingRight = true;
 
     public Animator animate;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         animate = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         betterWeapon = false;
     }
 
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(horizontalInput, 0f, 0f);
         transform.position += movement * moveSpeed * Time.deltaTime;
         animate.SetFloat("speed", Mathf.Abs(horizontalInput));
+        spriteRenderer.flipX = movement.x < 0f;
 
         if(horizontalInput > 0 && !facingRight)
         {
