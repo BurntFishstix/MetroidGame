@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class QuitButton : MonoBehaviour
+public class DeathByVoid : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    public void QuitGame()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Application.Quit();
+        if(collision.gameObject.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+            SceneManager.LoadScene("LoseScreen");
+        }
     }
 }

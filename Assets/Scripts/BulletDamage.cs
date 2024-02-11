@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BulletDamage : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class BulletDamage : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
             audioManager.PlaySFX(audioManager.hitagain);
+            SceneManager.LoadScene("WinScreen");
 
         }
         if(collision.gameObject.tag == "Enemy")
