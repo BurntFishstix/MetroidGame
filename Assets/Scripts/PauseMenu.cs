@@ -65,6 +65,9 @@ public class PauseMenu : MonoBehaviour
             Continue();
             ControlScreen.SetActive(false);
         }
+        else{
+            
+        }
 
     }
     public void Exit()
