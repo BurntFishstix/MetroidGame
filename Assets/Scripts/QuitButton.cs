@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class QuitButton : MonoBehaviour
 {
+     AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +24,7 @@ public class QuitButton : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
+          audioManager.PlaySFX(audioManager.buttonHover);
     }
 }

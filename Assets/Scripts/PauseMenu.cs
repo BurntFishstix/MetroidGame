@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject PauseButton;
     public GameObject ControlButton;
     public GameObject ControlScreen;
+    public GameObject OptionsPanel;
     public static bool GameIsPaused = false;
         AudioManager audioManager;
     private void Awake()
@@ -45,6 +46,7 @@ public class PauseMenu : MonoBehaviour
         PauseButton.SetActive(false);
         ControlButton.SetActive(false);
         ControlScreen.SetActive(false);
+        OptionsPanel.SetActive(false);
         audioManager.PlaySFX(audioManager.buttonHover);
     }
 
@@ -60,7 +62,13 @@ public class PauseMenu : MonoBehaviour
     
     public void Options()
     {
-        SceneManager.LoadScene("OptionsMenu");
+        PausePanel.SetActive(false);
+        Time.timeScale = 0;
+        GameIsPaused = true;
+        PauseButton.SetActive(false);
+        ControlButton.SetActive(false);
+        ControlScreen.SetActive(false);
+        OptionsPanel.SetActive(true);
         audioManager.PlaySFX(audioManager.buttonHover);
     }
 

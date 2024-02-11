@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class OptionsButton : MonoBehaviour
 {
+     AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -12,13 +17,10 @@ public class OptionsButton : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void LoadScene()
     {
         SceneManager.LoadScene("OptionsMenu");
+         audioManager.PlaySFX(audioManager.buttonHover);
     }
 }

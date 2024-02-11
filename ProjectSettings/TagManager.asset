@@ -11,6 +11,7 @@ TagManager:
   - Final
   - void
   - Audio
+  - GameMusic
   layers:
   - Default
   - TransparentFX
