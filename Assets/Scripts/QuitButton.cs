@@ -22,7 +22,7 @@ public class QuitButton : MonoBehaviour
 
     }
 
-    public void LoadScene()
+    public void QuitGame()
     {
         SceneManager.LoadScene("MainMenu");
           audioManager.PlaySFX(audioManager.buttonHover);
