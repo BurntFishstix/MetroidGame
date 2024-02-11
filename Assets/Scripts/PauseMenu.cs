@@ -6,6 +6,8 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject PausePanel;
     public GameObject PauseButton;
+    public GameObject ControlButton;
+    public GameObject ControlScreen;
     public static bool GameIsPaused = false;
 
     void Start()
@@ -36,6 +38,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         GameIsPaused = true;
         PauseButton.SetActive(false);
+        ControlButton.SetActive(false);
+        ControlScreen.SetActive(false);
     }
 
     public void Continue()
@@ -44,6 +48,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         GameIsPaused = false;
         PauseButton.SetActive(true);
+        ControlButton.SetActive(true);
     }
     
     public void Options()
@@ -51,6 +56,17 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("OptionsMenu");
     }
 
+    public void Controls()
+    {
+        ControlButton.SetActive(false);
+        ControlScreen.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Continue();
+            ControlScreen.SetActive(false);
+        }
+
+    }
     public void Exit()
     {
         Debug.Log("Returning to Main Menu...");
