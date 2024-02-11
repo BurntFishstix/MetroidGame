@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     bool facingRight = true;
 
+    public ParticleSystem GunShooting;
     public Animator animate;
     AudioManager audioManager;
     private void Awake()
@@ -66,6 +67,11 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    public void FiringGun()
+    {
+        GunShooting.Play();
     }
 
     void Flip()
