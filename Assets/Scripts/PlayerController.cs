@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private bool betterWeapon;
     public float bulletSpeed = 10;
     private bool isGrounded;
-
+    bool facingRight = true;
 
     public Animator animate;
     AudioManager audioManager;
@@ -47,13 +47,13 @@ public class PlayerController : MonoBehaviour
         transform.position += movement * moveSpeed * Time.deltaTime;
         animate.SetFloat("speed", Mathf.Abs(horizontalInput));
 
-        if(horizontalInput > 0)
+        if(horizontalInput > 0 && !facingRight)
         {
-            transform.localScale = new Vector3(3.182355f, 3.182355f, 3.182355f);
+            Flip();
         }
-        else if(horizontalInput < 0)
+        else if(horizontalInput < 0 && facingRight)
         {
-            transform.localScale = new Vector3(-3.182355f, 3.182355f, 3.182355f);
+            Flip();
         }
 
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
@@ -65,6 +65,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void Flip()
+    {
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
+
+        facingRight = !facingRight;
+    }
 
     void Shooting()
     {
