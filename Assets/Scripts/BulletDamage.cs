@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BulletDamage : MonoBehaviour
 {
+      AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +27,14 @@ public class BulletDamage : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
+            audioManager.PlaySFX(audioManager.hitagain);
 
         }
         if(collision.gameObject.tag == "Enemy")
         {
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
+            audioManager.PlaySFX(audioManager.hitagain);
         }
 
         if (collision.gameObject)

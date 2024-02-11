@@ -9,6 +9,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject ControlButton;
     public GameObject ControlScreen;
     public static bool GameIsPaused = false;
+        AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -40,6 +45,7 @@ public class PauseMenu : MonoBehaviour
         PauseButton.SetActive(false);
         ControlButton.SetActive(false);
         ControlScreen.SetActive(false);
+        audioManager.PlaySFX(audioManager.buttonHover);
     }
 
     public void Continue()
@@ -49,16 +55,19 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         PauseButton.SetActive(true);
         ControlButton.SetActive(true);
+        audioManager.PlaySFX(audioManager.buttonHover);
     }
     
     public void Options()
     {
         SceneManager.LoadScene("OptionsMenu");
+        audioManager.PlaySFX(audioManager.buttonHover);
     }
 
     public void Controls()
     {
         ControlButton.SetActive(false);
+        audioManager.PlaySFX(audioManager.buttonHover);
         ControlScreen.SetActive(true);
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -72,6 +81,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Exit()
     {
+        audioManager.PlaySFX(audioManager.buttonHover);
         Debug.Log("Returning to Main Menu...");
         SceneManager.LoadScene("MainMenu");
     }

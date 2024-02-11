@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDamage : MonoBehaviour
+public class voided : MonoBehaviour
 {
-    public int damage;
-    public PlayerHealth playerHealth;
-    AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +15,11 @@ public class EnemyDamage : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.CompareTag("Player"))
         {
-            playerHealth.TakeDamage(damage);
+            Destroy(collision.gameObject);
         }
     }
 }

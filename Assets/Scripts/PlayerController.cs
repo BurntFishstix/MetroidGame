@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
 
 
     public Animator animate;
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -101,6 +106,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             betterWeapon = true;
+            audioManager.PlaySFX(audioManager.pickUpShotgun);
         }
     }
 }
