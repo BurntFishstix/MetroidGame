@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class InvincibilityToggle : MonoBehaviour
 {
+    
+
     public Toggle invincibilityToggle;
     public PlayerHealth playerHealth;
 

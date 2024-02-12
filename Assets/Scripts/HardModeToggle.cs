@@ -7,6 +7,7 @@ public class HardModeToggle : MonoBehaviour
 {
     public Toggle hardModeToggle;
     public PlayerHealth playerHealth;
+    public GameObject hardText;
 
     void Start()
     {
@@ -18,5 +19,6 @@ public class HardModeToggle : MonoBehaviour
     public void OnToggleHard(bool invincible)
     {
         playerHealth.HardMode = true;
+        hardText.SetActive(true);
     }
 }
