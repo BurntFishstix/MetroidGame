@@ -558,6 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 468815392}
   - component: {fileID: 468815393}
+  - component: {fileID: 468815394}
   m_Layer: 5
   m_Name: Invincibility
   m_TagString: Untagged
@@ -646,7 +647,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 468815394}
+        m_TargetAssemblyTypeName: InvincibilityToggle, Assembly-CSharp
+        m_MethodName: OnToggleInvincibility
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
+--- !u!114 &468815394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468815391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5906ed41709474cabf652813212221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibilityToggle: {fileID: 468815393}
+  playerHealth: {fileID: 8048175877250740068, guid: aab34d0f68569b5448c4b778ff747c9f, type: 3}
 --- !u!1 &495462985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1424865357}
   - component: {fileID: 1424865358}
+  - component: {fileID: 1424865359}
   m_Layer: 5
   m_Name: HardMode
   m_TagString: Untagged
@@ -1395,13 +1423,13 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1424865356}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1424865359}
+        m_TargetAssemblyTypeName: HardModeToggle, Assembly-CSharp
+        m_MethodName: OnToggleHard
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1420,6 +1448,20 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &1424865359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424865356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239280938c37a9b4887b1a6b0e227dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hardModeToggle: {fileID: 1424865358}
+  playerHealth: {fileID: 8048175877250740068, guid: aab34d0f68569b5448c4b778ff747c9f, type: 3}
 --- !u!1 &1911924551
 GameObject:
   m_ObjectHideFlags: 0
