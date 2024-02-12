@@ -10,6 +10,7 @@ public class InvincibilityToggle : MonoBehaviour
 
     public Toggle invincibilityToggle;
     public PlayerHealth playerHealth;
+    public GameObject invincibleText;
 
     void Start()
     {
@@ -21,5 +22,6 @@ public class InvincibilityToggle : MonoBehaviour
     public void OnToggleInvincibility(bool invincible)
     {
         playerHealth.IsInvincible = true;
+        invincibleText.SetActive(true);
     }
 }
