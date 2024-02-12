@@ -24,7 +24,6 @@ public class QuitButton : MonoBehaviour
 
     public void QuitGame()
     {
-        SceneManager.LoadScene("MainMenu");
-        audioManager.PlaySFX(audioManager.buttonHover);
+        Application.Quit();
     }
 }
